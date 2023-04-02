@@ -5,7 +5,7 @@ PapersWithProof allow two things:
 
 
 ## Project's description
-PapersWithProof is the [PapersWithCode](https://paperswithcode.com/) little brother.
+PapersWithProof is inspired by [PapersWithCode](https://paperswithcode.com/).
 PapersWithCode links the research papers to the code implementation in particular to improve the reproducibility of the lab experimentation. 
 
 With PapersWithProof, we want to take a step further by guaranteeing that all the results listed in research papers are correct, i.e. have been computed honestly. We are therefore interested in the computational integrity of the researchers calculations to ensure reproducibility of the results but also their correctness.
@@ -75,28 +75,20 @@ Running the app
    ```bash
    yarn test
    ```
-   
-5. other commands
 
+5. Train your  model with ![PyEZKL](https://github.com/zkonduit/pyezkl)
+6. Clone the EZKL project to produce proof and generate the verifier solidity contract
    ```bash
-   # rebuild all contracts, incase of inconsistent state
-   yarn contracts:rebuild
-   # run hardhat commands for the workspace, or see all tasks
-   yarn hardhat 'xxx'
-   # get eth for testing locally
-   yarn hardhat faucet xxx
-   # run any subgraph commands for the workspace
-   yarn subgraph 'xxx'
+   git clone https://github.com/zkonduit/ezkl.git
    ```
-
-   Other folders
-
+7. Follow the installation instructions
+8. Generate the proof
    ```bash
-   # for subgraph
-   packages/advanced/subgraph/
-   packages/advanced/services/
+   ezkl -K=17 gen-srs --params-path=kzg.params
+   ezkl -K=17 --bits=16 create-evm-verifier-aggr --deployment-code-path aggr_1l_relu.code --params-path=kzg.params --vk-path aggr_1l_relu.vk
+   ezkl -K=17 --bits=16 verify-evm --proof-path aggr_1l_relu.pf --deployment-code-path aggr_1l_relu.code
+   ezkl deploy-verifier-evm -S ./mymnemonic.txt -U http://localhost:8545 --deployment-code-path aggr_1l_relu.code
    ```
-
 ### Environment Variables
 
 Vite  app folders has `.env` files. To create local variables that overrride these, create a file called `.env.local`, or `.env.development.local` or `.env.production.local` and put your overrides in there.
