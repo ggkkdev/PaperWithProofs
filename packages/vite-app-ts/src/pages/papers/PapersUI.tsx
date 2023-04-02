@@ -1,21 +1,21 @@
 import { Divider, Layout } from 'antd';
 import React, { FC } from 'react';
 
-import { CreatePool } from '~~/components/pools/createPool';
-import { Pools } from '~~/components/pools/Pools';
+import { CreatePaper } from '~~/components/paper/createPaper';
+import { Papers } from '~~/components/paper/Papers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface PoolsProps {}
+export interface PaperProps {}
 
-export const PoolsUI: FC<PoolsProps> = (props) => {
+export const PapersUI: FC<PaperProps> = (props) => {
   return (
     <Layout style={{ padding: '90px' }}>
       <Layout.Header>
-        <CreatePool />
+        <CreatePaper />
       </Layout.Header>
       <Divider />
       <Layout.Content>
-        <Pools />
+        <Papers />
       </Layout.Content>
     </Layout>
   );

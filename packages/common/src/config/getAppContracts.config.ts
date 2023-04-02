@@ -26,9 +26,9 @@ export const getAppContractsConfig = () => {
       // --------------------------------------------------
       // 🙋🏽‍♂️ Add your hadrdhat contracts here
       // --------------------------------------------------
-      Staking: createConnectorForHardhatContract(
-        'Staking',
-        hardhatContracts.Staking__factory,
+      PaperFactory: createConnectorForHardhatContract(
+        'PaperFactory',
+        hardhatContracts.PaperFactory__factory,
         hardhatDeployedContractsJson
       ),
       RewardToken: createConnectorForHardhatContract(

@@ -1,3 +1,4 @@
+/*
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { parseEther } from '@ethersproject/units';
 import { Button, Form, Input, Modal } from 'antd';
@@ -105,3 +106,4 @@ export const Stake: FC<IStakeProps> = (props) => {
     </>
   );
 };
+*/

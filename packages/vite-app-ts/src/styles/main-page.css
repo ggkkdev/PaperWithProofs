@@ -20,7 +20,7 @@
   height: 130px;
 }
 .flex img {
-  height: 130px;
+  height: 100px;
 }
 
 .ant-statistic-content {
@@ -40,4 +40,8 @@
 
 .ant-list-item {
   margin: 20px;
+}
+
+.flex img {
+   height: None!important;
 }

@@ -15,44 +15,6 @@ const func: DeployFunction = async (hre: THardhatRuntimeEnvironmentExtended) => 
   const chainId = await getChainId();
   console.log(chainId);
 
-  if (chainId == localChainId) {
-    log('Local network detected! Deploying mocks...');
-    await deploy('DAIETHPriceFeed', {
-      contract: 'MockV3Aggregator',
-      from: deployer,
-      log: true,
-      args: [DECIMALS, DAI_INITIAL_PRICE],
-    });
-    await deploy('WBTCETHPriceFeed', {
-      contract: 'MockV3Aggregator',
-      from: deployer,
-      log: true,
-      args: [DECIMALS, BTC_INITIAL_PRICE],
-    });
-    await deploy('DAI', {
-      contract: 'MockERC20',
-      from: deployer,
-      log: true,
-      args: ['DAI', 'DAI'],
-    });
-    await deploy('WBTC', {
-      contract: 'MockERC20',
-      from: deployer,
-      log: true,
-      args: ['Wrapped Bitcoin', 'WBTC'],
-    });
-    await deploy('RandomToken', {
-      contract: 'MockERC20',
-      from: deployer,
-      log: true,
-      args: ['Random Token', 'RT'],
-    });
-    log('Mocks Deployed!');
-    log('----------------------------------------------------');
-    log("You are deploying to a local network, you'll need a local network running to interact");
-    log('Please run `yarn hardhat console` to interact with the deployed smart contracts!');
-    log('----------------------------------------------------');
-  }
 
   /*
     // Getting a previously deployed contract

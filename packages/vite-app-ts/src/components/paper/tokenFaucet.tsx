@@ -1,34 +1,40 @@
+/*
 import { CheckCircleOutlined } from '@ant-design/icons';
-import { Button, message } from 'antd';
+import { Button } from 'antd';
 import { transactor } from 'eth-components/functions';
 import { EthComponentsSettingsContext } from 'eth-components/models';
-import { useGasPrice } from 'eth-hooks';
+import { useGasPrice, useSignerAddress } from 'eth-hooks';
 import { useEthersAppContext } from 'eth-hooks/context';
+import { ethers } from 'ethers';
+import { parseEther } from 'ethers/lib/utils';
 import React, { FC, useContext } from 'react';
 
-import { useAppContracts } from '~common/components/context';
 import { getNetworkInfo } from '~common/functions';
-import { Staking } from '~common/generated/contract-types';
+import { MockERC20 } from '~common/generated';
+import { MockERC20__factory } from '~common/generated/contract-types';
 import { IPool } from '~~/components/hooks/usePools';
 
-export interface IRewardProps {
+export interface ITokenFaucet {
   pool: IPool;
 }
 
-export const Reward: FC<IRewardProps> = (props) => {
+export const TokenFaucet: FC<ITokenFaucet> = (props) => {
   const { pool } = props;
   const ethersAppContext = useEthersAppContext();
   const ethComponentsSettings = useContext(EthComponentsSettingsContext);
   const [gasPrice] = useGasPrice(ethersAppContext.chainId, 'fast', getNetworkInfo(ethersAppContext.chainId));
   const tx = transactor(ethComponentsSettings, ethersAppContext?.signer, gasPrice);
-  const stakingContract: Staking | undefined = useAppContracts('Staking', ethersAppContext.chainId);
+  const [myAddress] = useSignerAddress(ethersAppContext.signer);
+  const contract: MockERC20 = new ethers.Contract(
+    pool.token,
+    MockERC20__factory.abi,
+    ethersAppContext.signer
+  ) as MockERC20;
 
   const onClick = async (): Promise<void> => {
-    await tx!(stakingContract?.claimReward(pool.token), (update: any) => {
+    await tx!(contract?.mint(myAddress!, parseEther('20')), (update: any) => {
       if (update.status === 1) {
-        void message.success(`Good job ! you get ${update.value} reward`);
-        console.log(update);
-        console.log('reward ok  !');
+        console.log('faucet ok  !');
       }
     });
   };
@@ -40,11 +46,12 @@ export const Reward: FC<IRewardProps> = (props) => {
           void onClick();
         }}
         type="primary"
-        key={pool.token + 'Stake'}
-        style={{ backgroundColor: '#389e0d', borderColor: 'transparent' }}
+        key={pool.token + 'faucet'}
+        style={{ backgroundColor: 'grey', borderColor: 'transparent' }}
         icon={<CheckCircleOutlined />}>
-        Get Reward
+        Get some tokens
       </Button>
     </>
   );
 };
+*/

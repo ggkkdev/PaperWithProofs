@@ -13,8 +13,14 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     waitConfirmations: waitBlockConfirmations,
   })
 
+  await deploy("PaperFactory", {
+    from: deployer,
+    args: args,
+    log: true,
+    waitConfirmations: waitBlockConfirmations,
+  })
 
   log("----------------------------------------------------")
 }
 
-module.exports.tags = ["all", "staking"]
+module.exports.tags = ["all", "paper"]

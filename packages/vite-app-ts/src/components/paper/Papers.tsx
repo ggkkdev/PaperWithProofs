@@ -1,14 +1,14 @@
 import { List } from 'antd';
 import React, { FC } from 'react';
+import {IPaper, usePapers} from "~~/components/hooks/usePapers";
+import {Paper} from "~~/components/paper/Paper";
 
-import { IPool, usePools } from '~~/components/hooks/usePools';
-import { Pool } from '~~/components/pools/Pool';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface IPoolsProps {}
+export interface IPapersProps {}
 
-export const Pools: FC<IPoolsProps> = (props) => {
-  const pools: IPool[] = usePools();
+export const Papers: FC<IPapersProps> = (props) => {
+  const papers: IPaper[] = usePapers();
   return (
     <div style={{ width: '100%' }}>
       <List
@@ -19,8 +19,8 @@ export const Pools: FC<IPoolsProps> = (props) => {
           },
           pageSize: 3,
         }}
-        dataSource={pools}
-        renderItem={(item: IPool): any => <Pool pool={item} />}
+        dataSource={papers}
+        renderItem={(item: IPaper): any => <Paper paper={item} />}
       />
     </div>
   );

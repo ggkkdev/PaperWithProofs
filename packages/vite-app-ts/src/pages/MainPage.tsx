@@ -9,7 +9,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { createTabsAndRoutes, MainPageFooter, MainPageHeader, TContractPageList } from '../components/main';
 
-import { PoolsUI } from './pools/PoolsUI';
+import { PapersUI } from './papers/PapersUI';
 
 import { useAppContracts, useConnectAppContracts, useLoadAppContracts } from '~common/components/context';
 import { useCreateAntNotificationHolder } from '~common/components/hooks/useAntNotification';
@@ -123,8 +123,8 @@ export const MainPage: FC = () => {
   // This is the list of tabs and their contents
   const pageList: TContractPageList = {
     mainPage: {
-      name: 'Pools',
-      content: <PoolsUI />,
+      name: 'Papers',
+      content: <PapersUI />,
     },
     pages: [],
   };

@@ -17,7 +17,7 @@
     "moduleResolution": "Node",
     "incremental": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "rootDirs": [".", "../common/src"],
     "baseUrl": ".",

@@ -106,10 +106,10 @@ export const MainPageFooter: FC<IMainPageFooterProps> = (props) => {
       <Divider style={{ margin: '1px 0' }} />
       <div className="flex footer" style={{ justifyContent: 'space-between' }}>
         <div>
-          <img src="assets/Alyralogo.png" alt=""></img>
+          <img src="assets/zk.png" height="100px" alt=""></img>
         </div>
         <div>
-          <img src="assets/Copyright.png" alt=""></img>
+          <img src="assets/scholar4.png" width={"auto"} height={"auto"}  alt=""></img>
         </div>
       </div>
     </>

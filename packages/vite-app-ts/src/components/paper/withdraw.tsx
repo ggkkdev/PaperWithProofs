@@ -1,3 +1,6 @@
+/*
+import { MinusCircleOutlined } from '@ant-design/icons';
+import { parseEther } from '@ethersproject/units';
 import { Button, Form, Input, Modal } from 'antd';
 import { transactor } from 'eth-components/functions';
 import { EthComponentsSettingsContext } from 'eth-components/models';
@@ -8,17 +11,18 @@ import React, { FC, useContext, useState } from 'react';
 import { useAppContracts } from '~common/components/context';
 import { getNetworkInfo } from '~common/functions';
 import { Staking } from '~common/generated/contract-types';
+import { IPool } from '~~/components/hooks/usePools';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ICreatePoolProps {}
-
-interface IPoolForm {
-  tokenAddress: string;
-  oracle: string;
-  rewardRate: number;
+export interface IWithdrawProps {
+  pool: IPool;
 }
 
-export const CreatePool: FC<ICreatePoolProps> = (props) => {
+interface IWithdrawForm {
+  amount: number;
+}
+
+export const Withdraw: FC<IWithdrawProps> = (props) => {
+  const { pool } = props;
   const ethersAppContext = useEthersAppContext();
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
@@ -27,23 +31,28 @@ export const CreatePool: FC<ICreatePoolProps> = (props) => {
   const tx = transactor(ethComponentsSettings, ethersAppContext?.signer, gasPrice);
   const stakingContract: Staking | undefined = useAppContracts('Staking', ethersAppContext.chainId);
 
-  const onValidate = async (values: IPoolForm): Promise<void> => {
-    await tx!(stakingContract?.createPool(values.tokenAddress, values.oracle, values.rewardRate), (update: any) => {
+  const onValidate = async (values: IWithdrawForm): Promise<void> => {
+    await tx!(stakingContract?.withdraw(parseEther(values.amount.toString()), pool.token), (update: any) => {
       setVisible(false);
       if (update.status === 1) {
-        console.log('Pool created!');
+        console.log('Withdraw done!');
       }
     });
   };
   return (
     <>
-      <Button type="primary" size={'large'} onClick={(): void => setVisible(true)}>
-        Create new Pool
+      <Button
+        onClick={(): void => setVisible(true)}
+        danger
+        type="primary"
+        key={pool.token + 'Stake'}
+        icon={<MinusCircleOutlined />}>
+        Withdraw
       </Button>
       <Modal
         visible={visible}
-        title="Create a new Pool"
-        okText="Create"
+        title="Withdraw tokens"
+        okText="Confirm"
         cancelText="Cancel"
         onCancel={(): void => setVisible(false)}
         onOk={(): void => {
@@ -51,25 +60,19 @@ export const CreatePool: FC<ICreatePoolProps> = (props) => {
             .validateFields()
             .then(async (values) => {
               form.resetFields();
-              await onValidate(values as IPoolForm);
+              await onValidate(values as IWithdrawForm);
             })
             .catch((info) => {
               console.log('Validate Failed:', info);
             });
         }}>
         <Form form={form} name="pool-form" preserve={false}>
-          {/* //onFinish={onFinish}>*/}
-          <Form.Item name="oracle" label="Oracle Feed" rules={[{ required: true }]}>
-            <Input type={'string'} />
-          </Form.Item>
-          <Form.Item name="tokenAddress" label="Token Address" rules={[{ required: true }]}>
-            <Input type={'string'} />
-          </Form.Item>
-          <Form.Item name="rewardRate" label="Reward Rate" rules={[{ required: true }]}>
-            <Input type={'number'} />
+          <Form.Item name="amount" label="Amount" rules={[{ required: true }]}>
+            <Input type={'number'} addonAfter={pool.symbol} />
           </Form.Item>
         </Form>
       </Modal>
     </>
   );
 };
+*/
