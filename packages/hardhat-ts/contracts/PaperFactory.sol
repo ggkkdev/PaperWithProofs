@@ -69,6 +69,11 @@ contract PaperFactory is ReentrancyGuard {
         }
     }
 
+    function verifyMock(string memory _proof, string memory _identifier) external returns (bool) {
+        papers[_identifier].verified=true;
+        return true;
+    }
+
     /********************/
     /* Frontend Functions */
     /********************/

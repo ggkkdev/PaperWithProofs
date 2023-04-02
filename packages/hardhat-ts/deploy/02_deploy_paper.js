@@ -6,12 +6,12 @@ module.exports = async ({getNamedAccounts, deployments}) => {
   const waitBlockConfirmations = 1
   log("----------------------------------------------------")
   const args = [rewardToken.address]
-  await deploy("Staking", {
+/*  await deploy("Staking", {
     from: deployer,
     args: args,
     log: true,
     waitConfirmations: waitBlockConfirmations,
-  })
+  })*/
 
   await deploy("PaperFactory", {
     from: deployer,

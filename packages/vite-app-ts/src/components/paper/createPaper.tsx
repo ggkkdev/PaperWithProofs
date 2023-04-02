@@ -31,6 +31,7 @@ export const CreatePaper: FC<ICreatePaperProps> = (props) => {
   const paperContract: PaperFactory | undefined = useAppContracts('PaperFactory', ethersAppContext.chainId);
 
   const onValidate = async (values: IPaperForm): Promise<void> => {
+    console.log(values.url,values.identifier,  values.title, values.citation )
     await tx!(paperContract?.createPaper( values.url, values.identifier, values.title,values.citation ), (update: any) => {
       setVisible(false);
       if (update.status === 1) {
@@ -71,7 +72,7 @@ export const CreatePaper: FC<ICreatePaperProps> = (props) => {
           <Form.Item name="identifier" label="Identifier" rules={[{ required: true }]}>
             <Input type={'string'} />
           </Form.Item>
-          <Form.Item name="citation" label="Citation" rules={[{ required: true }]}>
+          <Form.Item name="citation" label="Citation" >
             <Input type={'string'} />
           </Form.Item>
         </Form>

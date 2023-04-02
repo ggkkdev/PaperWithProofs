@@ -44,7 +44,7 @@ export const Paper: FC<IPaperProps> = (props) => {
             <Progress
               type="circle"
               percent={
-                0
+                paper.verified? 100 : 0
               }
             />
           </Col>

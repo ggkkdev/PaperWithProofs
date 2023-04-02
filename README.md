@@ -1,15 +1,14 @@
 # PapersWithProof
 PapersWithProof allow two things:
-- for researchers to make value their papers by their citations.
-- Prove that the results listed on the papers are corret.
+- for researchers to make value from their papers by the number of citations they have.
+- Prove that the results listed on the papers are correct.
 
 
 ## Project's description
 PapersWithProof is the [PapersWithCode](https://paperswithcode.com/) little brother.
 PapersWithCode links the research papers to the code implementation in particular to improve the reproducibility of the lab experimentation. 
 
-With PapersWithProof, we want to take a step further by guaranteeing that all the results listed in research papers are correct, i.e. have been computed honestly. 
-We are therefore interested in the computational integrity part of the researchers calculations to ensure reproducibility of the results but also the correctness of the result. 
+With PapersWithProof, we want to take a step further by guaranteeing that all the results listed in research papers are correct, i.e. have been computed honestly. We are therefore interested in the computational integrity of the researchers calculations to ensure reproducibility of the results but also their correctness.
 
 Moreover, we have sometimes to pay to access research papers depending on the field. This is not an optimal way to value the work done. 
 Instead, each paper is managed by our contract and the more you are cited, the more you can claim tokens. 
@@ -26,6 +25,8 @@ It means that you can train the python model from [PyEZKL](https://github.com/zk
 ## Overview
 ![image](./packages/vite-app-ts/public/assets/paperwithproof.png) 
 
+## Demo
+![Demo video](paperwithproofs.gif)
 
 ## TODO 
 This is a basic implementation because of the time constraints and there are a lot of changes to be made : 

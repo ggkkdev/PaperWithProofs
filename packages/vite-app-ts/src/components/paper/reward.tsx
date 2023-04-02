@@ -8,7 +8,7 @@ import React, {FC, useContext} from 'react';
 
 import {useAppContracts} from '~common/components/context';
 import {getNetworkInfo} from '~common/functions';
-import {PaperFactory, Staking} from '~common/generated/contract-types';
+import {PaperFactory} from '~common/generated/contract-types';
 import {IPaper} from "~~/components/hooks/usePapers";
 
 export interface IRewardProps {

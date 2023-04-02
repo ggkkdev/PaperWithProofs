@@ -15,6 +15,7 @@ export interface IPaper {
   citation?: string;
   identifier:string;
   nbOfCitation:BigNumber;
+  verified:boolean;
 }
 
 export interface IUserInfo {
@@ -46,7 +47,8 @@ export const usePapers = (): IPaper[] => {
             url: _paper.url,
             citation: _paper.citation,
             identifier:_paper.identifier,
-            nbOfCitation:_paper.nbOfCitation
+            nbOfCitation:_paper.nbOfCitation,
+            verified:_paper.verified
           };
         })
       );
