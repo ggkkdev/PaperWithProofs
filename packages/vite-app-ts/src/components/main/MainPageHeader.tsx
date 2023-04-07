@@ -46,8 +46,8 @@ export const MainPageHeader: FC<IMainPageHeaderProps> = (props) => {
   const left = (
     <>
       <div>
-        <div className={'bg-[#102039] grid grid-cols-3 p-5 w-screen'}>
-          <img className={'p-4 h-24'} src="assets/scholar4.png" alt="logo"></img>
+        <div id={"headerDiv"}>
+          <img src="assets/trust2.png" alt="logo"></img>
           <div className="text-slate-50 text-center py-8 pr-9 text-4xl font-serif">PaperWithProof</div>
         </div>
       </div>

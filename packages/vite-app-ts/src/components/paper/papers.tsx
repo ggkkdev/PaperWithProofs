@@ -1,7 +1,7 @@
 import { List } from 'antd';
 import React, { FC } from 'react';
 import {IPaper, usePapers} from "~~/components/hooks/usePapers";
-import {Paper} from "~~/components/paper/Paper";
+import {Paper} from "~~/components/paper/paper";
 
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

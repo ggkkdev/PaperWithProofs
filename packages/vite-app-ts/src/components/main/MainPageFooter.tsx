@@ -109,7 +109,7 @@ export const MainPageFooter: FC<IMainPageFooterProps> = (props) => {
           <img src="assets/zk.png" height="100px" alt=""></img>
         </div>
         <div>
-          <img src="assets/scholar4.png" width={"auto"} height={"auto"}  alt=""></img>
+          <img src="assets/trust2.png" width={"auto"} height={"auto"}  alt=""></img>
         </div>
       </div>
     </>

@@ -36,6 +36,11 @@ export const getAppContractsConfig = () => {
         hardhatContracts.RewardToken__factory,
         hardhatDeployedContractsJson
       ),
+      MockVerifier: createConnectorForHardhatContract(
+        'MockVerifier',
+        hardhatContracts.MockVerifier__factory,
+        hardhatDeployedContractsJson
+      ),
 
       // --------------------------------------------------
       // 🙋🏽‍♂️ Add your external contracts here, make sure to define the address in `externalContractsConfig.ts`Í

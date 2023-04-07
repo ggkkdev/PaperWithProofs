@@ -45,3 +45,11 @@
 .flex img {
    height: None!important;
 }
+#headerDiv img{
+  height:200px;
+  position:absolute;
+  left:20px;
+}
+#headerDiv {
+  height:150px
+}

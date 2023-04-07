@@ -65,6 +65,9 @@ export const usePapers = (): IPaper[] => {
     paperContract?.on('PaperCreated', async (): Promise<void> => {
       await updateAllPapers();
     });
+    paperContract?.on('PaperVerified', async (): Promise<void> => {
+      await updateAllPapers();
+    });
   }, [paperContract, ethersAppContext.signer, myAddress]);
 
   return papers;
