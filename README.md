@@ -24,6 +24,7 @@ Here we borrow the code to verify the circuits from [EZKL](https://github.com/zk
 It means that you can train the python model from [PyEZKL](https://github.com/zkonduit/pyezkl.git) and the code will be verified online.
 
 ## Overview
+You can play with the testnet demo [here](https://paperwithproofs.web.app/)
 ![image](./packages/vite-app-ts/public/assets/paperwithproof.png) 
 
 ## Demo
