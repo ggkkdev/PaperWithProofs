@@ -44,11 +44,11 @@ console.log('HARDHAT_TARGET_NETWORK: ', process.env.HARDHAT_TARGET_NETWORK);
  * loads network list and config from '@scaffold-eth/common/src
  */
 const networks = {
-  ...getNetworks({
+/*  ...getNetworks({
     accounts: {
       mnemonic: getMnemonic(),
     },
-  }),
+  }),*/
   localhost: {
     url: 'http://localhost:8545',
     /*
@@ -62,6 +62,10 @@ const networks = {
   rinkeby: {
     url:'https://rinkeby.infura.io/v3/eb4e662f20bb49499212df7e3cf4fdba',
     accounts: ["9d806b6b42c975aa782b5c53e0e2a0026cfc38b5a14bff0187a60a2f2768ce4c"]
+  },
+  sepolia: {
+    url:'https://sepolia.infura.io/v3/07b7cb0381184896bd21b62150ae6d7c',
+    accounts: ["4022a02e6c3e082bcf6c44cb553ebd9e7b5565940154d968fc6e22113bcf33a0"]
   },
 };
 

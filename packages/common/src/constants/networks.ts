@@ -6,6 +6,13 @@ if (typeof window !== 'undefined' && window != null) {
 }
 
 export const NETWORKS = {
+  sepolia: {
+    url:'https://sepolia.infura.io/v3/07b7cb0381184896bd21b62150ae6d7c',
+    color: '#666666',
+    chainId: 11155111,
+    blockExplorer: 'https://sepolia.etherscan.io/',
+    name:"sepolia"
+  },
   localhost: {
     name: 'localhost',
     color: '#666666',

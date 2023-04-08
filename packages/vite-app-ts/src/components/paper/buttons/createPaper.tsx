@@ -30,7 +30,9 @@ export const CreatePaper: FC<ICreatePaperProps> = (props) => {
 
   const onValidate = async (values: IPaperForm): Promise<void> => {
     console.log(values.url,values.identifier,  values.title )
-    //const citation=values.citation ? values.citation : ""
+    console.log(ethComponentsSettings)
+    console.log(ethersAppContext?.signer)
+    console.log(tx)
     await tx!(paperContract?.createPaper( values.url, values.identifier, values.title), (update: any) => {
       setVisible(false);
       if (update.status === 1) {

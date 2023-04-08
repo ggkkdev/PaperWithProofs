@@ -21,7 +21,6 @@ export const PapersUI: FC<PaperProps> = (props) => {
   const rewardToken: RewardToken = useAppContracts('RewardToken', ethersAppContext.chainId)!;
   const [myAddress] = useSignerAddress(ethersAppContext.signer)
   const tokenBalance = useTokenBalance(rewardToken!, myAddress!)
-  console.log(tokenBalance[0])
   return (
     <Layout style={{padding: '90px'}}>
       <Layout.Header>
